@@ -1,11 +1,5 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  $END$
+  <div>
+    <slot/>
+  </div>
 </template>
-
-<style scoped>
-
-</style>
