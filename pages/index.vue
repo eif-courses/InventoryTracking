@@ -82,3 +82,5 @@ const createSubject = async () => {
     </UTable>
   </div>
 </template>
+
+

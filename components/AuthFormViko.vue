@@ -17,18 +17,40 @@ const form = reactive({
 })
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  // Do something with event.data
+  const { email, password } = event.data;
 
-  const {data} = await useFetch('https://vikosoftware-production.up.railway.app/login/jwt', {
-    method: 'POST',
-    body: {
-      "email": "string",
-      "password": "string"
+  try {
+    const { data, error } = await useFetch('api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ username: email, password }), // Ensure the body is a JSON string
+      headers: {
+        'Content-Type': 'application/json', // Set content type to JSON
+      },
+      credentials: 'include', // Ensure cookies are included in the request
+    });
+
+    if (error.value) {
+      console.error('Login failed:', error.value);
+      // Handle login failure (e.g., show error message)
+      return;
     }
-  });
 
-  console.log(data)
+
+    navigateTo('/');
+
+    console.log('Login successful:', await useFetch('api/auth/user', {
+      method: 'GET',
+      credentials: 'include', // Ensure cookies are included in the request
+    }));
+
+
+    // Handle successful login (e.g., redirect user, store user info)
+  } catch (err) {
+    console.error('An error occurred:', err);
+    // Handle unexpected errors
+  }
 }
+
 </script>
 
 

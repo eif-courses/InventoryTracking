@@ -1,4 +1,4 @@
-import {getSubjectsUrl} from "~/data/subjects";
+import {getSubjectsUrl, SubjectResponse} from "~/data/subjects";
 
 export default defineEventHandler(async (event) => {
     try {
