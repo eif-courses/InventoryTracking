@@ -9,7 +9,7 @@ export interface SubjectRequest {
     description: string;
 }
 
-export const getSubjectsUrl = 'http://localhost:5254/studyplan/subjects';
+export const getSubjectsUrl = 'https://studyplannersoft-production.up.railway.app/studyplan/subjects';
 
 export const createSubject = (subject: SubjectRequest) => {
     return $fetch(getSubjectsUrl, {

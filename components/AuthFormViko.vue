@@ -26,7 +26,6 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       headers: {
         'Content-Type': 'application/json', // Set content type to JSON
       },
-      credentials: 'include', // Ensure cookies are included in the request
     });
 
     if (error.value) {
@@ -36,15 +35,13 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     }
 
 
-    navigateTo('/');
-
-    console.log('Login successful:', await useFetch('api/auth/user', {
-      method: 'GET',
-      credentials: 'include', // Ensure cookies are included in the request
-    }));
-
-
-    // Handle successful login (e.g., redirect user, store user info)
+    // navigateTo('/');
+    //
+    // console.log('Login successful:', await useFetch('api/auth/user', {
+    //   method: 'GET',
+    //   credentials: 'include', // Ensure cookies are included in the request
+    // }));
+        // Handle successful login (e.g., redirect user, store user info)
   } catch (err) {
     console.error('An error occurred:', err);
     // Handle unexpected errors

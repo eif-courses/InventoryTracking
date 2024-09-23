@@ -84,11 +84,8 @@ const links = [
     </header>
 
     <main class="w-full flex justify-center items-center">
-      <slot/>
+      <slot />
     </main>
   </UContainer>
 </template>
 
-
-<style scoped>
-</style>

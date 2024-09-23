@@ -1,14 +1,16 @@
+import { BASE_URL } from "~/data/constants";
+
 export default defineEventHandler(async (event) => {
     const body = await readBody(event);
 
     try {
-        const response = await fetch('http://localhost:5254/auth/login', {
+        const response = await fetch(`${BASE_URL}/auth/login`, {
             method: 'POST',
             body: JSON.stringify(body),
-            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include', // Add this line
         });
 
         return response;
