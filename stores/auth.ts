@@ -5,6 +5,7 @@ export const useUserStore = defineStore('auth', {
 
     state: () => ({
         user: null as User | null,
+        userFetched: false,
     }),
     actions: {
 
@@ -40,6 +41,7 @@ export const useUserStore = defineStore('auth', {
                     return;
                 }
                 this.user = data.value.user;
+                this.userFetched = true;
 
             } catch (err) {
                 console.error('Error during user fetch:', err);

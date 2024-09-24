@@ -1,10 +1,8 @@
 <template>
   <div>
     <h1>User Details</h1>
-    <div v-if="error">
-      <p>Error: {{ error }}</p>
-    </div>
-    <div v-else-if="user">
+
+    <div v-if="user">
       <p>Name: {{ user }}</p>
     </div>
     <div v-else>
@@ -13,11 +11,9 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
-const { data, error } = await useFetch('/api/auth/user', {
-  credentials: 'include',
-});
+const authStore = useUserStore()
+const user = computed(() => authStore.user);
 
-const user = ref(data.value.user);
 </script>
