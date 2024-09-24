@@ -42,6 +42,27 @@ const links = [
     to: '/login'
   }
 ]
+
+
+const linksWhenLogged = [
+  {
+    label: 'Pagrindinis',
+    icon: 'i-heroicons-home',
+    to: '/'
+  },
+  {
+    label: 'Valdymo skydas',
+    icon: 'icon-park-twotone:hand-painted-plate',
+    to: '/dashboard'
+  },
+  {
+    label: 'Atsijungti',
+    icon: 'mdi:login',
+    to: '/login'
+  }
+]
+
+
 </script>
 
 <template>
@@ -78,13 +99,14 @@ const links = [
               active-class="bg-gray-300 dark:bg-gray-700"
           >
             <i :class="link.icon" class="mr-2"></i>{{ link.label }}
+
           </NuxtLink>
         </div>
       </transition>
     </header>
 
     <main class="w-full flex justify-center items-center">
-      <slot />
+      <slot/>
     </main>
   </UContainer>
 </template>

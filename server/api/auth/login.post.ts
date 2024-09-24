@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            credentials: 'include', // Add this line
+            credentials: 'include',
         });
 
         return response;
